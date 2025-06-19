@@ -25,8 +25,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-              <span className="text-white font-bold text-xl font-poppins">CP</span>
+            <div className="w-14 h-14 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+              <img src="/favicon.png" alt="CICO Pipes Logo" className="w-full h-full object-contain" />
             </div>
             <div className="animate-fade-in">
               <h1 className="text-2xl font-bold text-gray-900 font-poppins tracking-tight">CICO PIPES</h1>
