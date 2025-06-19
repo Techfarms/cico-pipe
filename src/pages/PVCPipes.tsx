@@ -282,7 +282,7 @@ const PVCPipes = () => {
                           </Link>
                         </h3>
                         <Badge variant="outline" className="text-sm px-3 py-1">
-                          ₦{product.price.toLocaleString()}
+                          ₦{`${product.price.toLocaleString()} (dummy)`}
                         </Badge>
                       </div>
                       
