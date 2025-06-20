@@ -1,9 +1,13 @@
-
+import {useEffect} from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Award, Target, Eye, Users, Factory, Globe, Shield, Zap } from "lucide-react";
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About Us | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
   const values = [
     {
       icon: Award,

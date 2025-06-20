@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -60,6 +61,10 @@ const PVCPipes = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "PVC Pipes | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
   const handleAddToCart = (product: Product) => {
     addToCart(product, 1);
   };

@@ -1,4 +1,4 @@
-
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
@@ -6,6 +6,10 @@ import { Phone, Mail, MapPin, Clock, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = "Contact Us | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />

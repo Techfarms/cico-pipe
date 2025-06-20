@@ -11,6 +11,11 @@ const NotFound = () => {
     );
   }, [location.pathname]);
 
+  useEffect(() => {
+    document.title = "404 Not Found | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="text-center">

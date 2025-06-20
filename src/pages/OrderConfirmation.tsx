@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -9,6 +10,11 @@ import { toast } from "sonner";
 
 const OrderConfirmation = () => {
   const { cartItems, totalPrice } = useCart();
+
+  useEffect(() => {
+    document.title = "Order Confirmation | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">

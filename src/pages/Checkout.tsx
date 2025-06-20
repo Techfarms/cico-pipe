@@ -1,5 +1,5 @@
 import { useCart } from "@/contexts/CartContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,6 +10,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const Checkout = () => {
+  useEffect(() => {
+    document.title = "Checkout | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
   const { cartItems, totalPrice, clearCart } = useCart();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({

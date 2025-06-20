@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { products } from "@/pages/PVCPipes";
-import { ArrowLeft, CheckCircle, ShoppingCart } from "lucide-react";
+import { ArrowLeft, ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
@@ -15,6 +16,11 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const product = products.find((p) => p.id === id);
+
+  useEffect(() => {
+    document.title = "Product Detail | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!product) {
     return (

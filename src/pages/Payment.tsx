@@ -28,6 +28,11 @@ const Payment = () => {
   const { cartItems, totalPrice, clearCart } = useCart();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "Payment | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
+
   // Add payment gateway scripts with retry mechanism
   React.useEffect(() => {
     const loadScript = (src: string, isPaystack: boolean) => {

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +10,11 @@ import Footer from "@/components/Footer";
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity, totalPrice, clearCart } = useCart();
+
+  useEffect(() => {
+    document.title = "Cart | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
 
   if (cartItems.length === 0) {
     return (
