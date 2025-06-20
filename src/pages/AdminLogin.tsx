@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -18,6 +18,11 @@ const AdminLogin = () => {
       alert('Invalid credentials');
     }
   };
+
+  useEffect(() => {
+    document.title = "Admin Login | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">

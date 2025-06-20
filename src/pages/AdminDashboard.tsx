@@ -16,6 +16,11 @@ interface Product {
 }
 
 const AdminDashboard = () => {
+    
+  useEffect(() => {
+    document.title = "Admin Dashboard | CICO Pipes";
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
   const { logout } = useAdmin();
   const [products, setProducts] = useState<Product[]>([]);
