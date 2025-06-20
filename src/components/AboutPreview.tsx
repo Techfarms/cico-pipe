@@ -36,7 +36,7 @@ const AboutPreview = () => {
               About CICO Pipes
             </h2>
             <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-              CICO Pipes is Nigeria's premier manufacturer of high-quality HDPE, PVC, and PPR pipes. 
+              CICO Pipes is Nigeria's premier manufacturer of high-quality PVC pipes. 
               We are committed to providing reliable, durable, and cost-effective piping solutions that 
               meet the highest international standards.
             </p>
