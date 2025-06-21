@@ -1,10 +1,12 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
+import { emailConfig, emailTemplate } from "@/config/email";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +19,11 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(emailConfig.publicKey);
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -28,15 +35,26 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "Inquiry Sent Successfully!",
-        description: "We'll get back to you within 24 hours.",
-      });
+      const templateParams = {
+        ...emailTemplate,
+        subject: formData.subject,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: formData.message
+      };
 
+      await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        templateParams
+      );
+
+      toast({
+        title: "Success",
+        description: "Your message has been sent successfully! We'll get back to you soon."
+      });
       setFormData({
         name: "",
         email: "",
@@ -45,10 +63,11 @@ const ContactForm = () => {
         message: ""
       });
     } catch (error) {
+      console.error('Error sending email:', error);
       toast({
         title: "Error",
-        description: "There was a problem sending your inquiry. Please try again.",
-        variant: "destructive",
+        description: "Failed to send message. Please try again or contact us directly at info@cicopipes.com",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
