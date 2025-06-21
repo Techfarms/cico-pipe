@@ -16,6 +16,6 @@ export const emailConfig = {
 export const emailTemplate = {
   site_name: 'CICO PIPES',
   site_section: 'Website Contact Form',
-  to_email: 'support.it@aleedconstruction.com', // Replace with your email address
+  to_email: 'info@cicopipes.com', // Replace with your email address
   phone: 'Not Provided'
 };
